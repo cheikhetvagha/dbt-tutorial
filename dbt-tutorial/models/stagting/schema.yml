@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+    - name: stg_customers
+      description: "Staging view for customers table"
+      columns:
+          - name: customer_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: stg_orders
+      description: "Staging view for orders table"
+      columns:
+          - name: order_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: stg_payments
+      description: "Staging view for payments table"
+      columns:
+          - name: payment_id
+            description: "The primary key for payment table"
+            tests:
+                - unique
+                - not_null
+         - name: payment_method
+           description: "payment method"
+           tests:
+             -accepted_vlaues: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
